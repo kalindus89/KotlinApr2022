@@ -1,5 +1,6 @@
 package com.kotlin.testkotlinapr2022.menu
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -7,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.kotlin.testkotlinapr2022.R
 import com.kotlin.testkotlinapr2022.databinding.ActivityMainBinding
+import com.kotlin.testkotlinapr2022.project1.MvvmWithRetrofitActivity
 
 class MenuActivity : AppCompatActivity() {
 
@@ -28,7 +30,11 @@ class MenuActivity : AppCompatActivity() {
 
             when (it) {
                 1 -> {
-                    Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
+                    Intent(this, MvvmWithRetrofitActivity::class.java).also {
+                        it.flags =
+                            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK // finish this activity
+                        startActivity(it)
+                    }
                 }
                 2 -> {
                     Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
