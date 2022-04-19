@@ -12,6 +12,6 @@ interface ApiInterface {
 
 
     @GET("repositories")
-    suspend fun userLogin(@Query("q") q: String): Response<AllResultsModel>
+    suspend fun userQuery(@Query("q") q: String): AllResultsModel
 
 }
